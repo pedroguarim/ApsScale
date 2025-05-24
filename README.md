@@ -1,3 +1,5 @@
+# Código do Projeto de software SCALE
+# Imports
 import pandas as pd  # Biblioteca para manipulação de dados
 import matplotlib.pyplot as plt  # Biblioteca para visualização de gráficos
 from sqlalchemy import create_engine  # Biblioteca para conexão com o banco de dados SQL Server
@@ -10,9 +12,10 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.enums import TA_LEFT
 # Classe responsável pelo cálculo de emergia
 
-class EmergyCalculator: #calculador de emergia
+
+class EmergyCalculator:  #Calculador de emergia
     def __init__(self, connection_string):
-        self.engine = create_engine(connection_string)  # Cria a conexão com o banco de dados
+        self.engine = create_engine(connection_string)  #Cria a conexão com o banco de dados
     
     def fetch_lci_data(self): # os dados do lci
         query = """
@@ -30,8 +33,8 @@ class EmergyCalculator: #calculador de emergia
     """
         df = pd.read_sql(query, self.engine)
         return df
-
-    def apply_emergy_algebra(self, lci_data, transformities): #algebra de emergia - o calculo se faz aqui
+# Algebra de emergia - o calculo se faz aqui
+    def apply_emergy_algebra(self, lci_data, transformities): 
         # Calcula a emergia multiplicando a quantidade do item pelo fator de transformidade correspondente
         lci_data['Emergy'] = lci_data.apply(
             lambda row: row['Quantidade'] * transformities.get(row['Item'], 1), axis=1)
