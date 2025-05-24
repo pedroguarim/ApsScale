@@ -1,0 +1,57 @@
+CREATE TABLE InventarioCicloVida (
+    ID INT PRIMARY KEY,
+    Processo VARCHAR(100),
+    EntradaSaida VARCHAR(10),
+    Item VARCHAR(100),
+    Quantidade FLOAT,
+    Unidade VARCHAR(50)
+);
+
+INSERT INTO InventarioCicloVida (ID, Processo, EntradaSaida, Item, Quantidade, Unidade) VALUES
+(1, 'Produção de Blocos de Concreto', 'Entrada', 'Cimento Portland', 250.0000, 'kg/m³'),
+(2, 'Produção de Blocos de Concreto', 'Entrada', 'Areia', 700.0000, 'kg/m³'),
+(3, 'Produção de Blocos de Concreto', 'Entrada', 'Brita', 1050.0000, 'kg/m³'),
+(4, 'Produção de Blocos de Concreto', 'Entrada', 'Água', 175.0000, 'kg/m³'),
+(5, 'Produção de Blocos de Concreto', 'Saida', 'Bloco de Concreto', 1.0000, 'unidade'),
+(6, 'Produção de Leite', 'Entrada', 'Ração', 0.3000, 'kg/L'),
+(7, 'Produção de Leite', 'Entrada', 'Água', 3.0000, 'L/L'),
+(8, 'Produção de Leite', 'Entrada', 'Energia Elétrica', 0.0500, 'kWh/L'),
+(9, 'Produção de Leite', 'Saida', 'Leite Cru', 1.0000, 'L'),
+(10, 'Produção de Blocos de Concreto', 'Entrada', 'Madeira', 15.0000, 'kg/m³'),
+(11, 'Produção de Blocos de Concreto', 'Entrada', 'Aço', 10.0000, 'kg/m³'),
+(12, 'Produção de Tijolos', 'Entrada', 'Água', 150.0000, 'kg/m³'),
+(13, 'Produção de Tijolos', 'Entrada', 'Argila', 600.0000, 'kg/m³'),
+(14, 'Produção de Leite', 'Entrada', 'Diesel', 0.0800, 'L/L'),
+(15, 'Produção de Leite', 'Entrada', 'Gasolina', 0.0300, 'L/L'),
+(16, 'Produção de Vidro Temperado', 'Entrada', 'Energia Elétrica (rede)', 0.0500, 'kWh/kg'),
+(17, 'Produção de Vidro Temperado', 'Entrada', 'Vidro', 250.0000, 'g/m²'),
+(18, 'Produção de Embalagens Plásticas', 'Entrada', 'Energia Elétrica (rede)', 4.0000, 'kWh/m²'),
+(19, 'Produção de Embalagens Plásticas', 'Entrada', 'Plástico (PEAD)', 100.0000, 'g/unidade'),
+(20, 'Produção de Embalagens Plásticas', 'Entrada', 'Água', 50.0000, 'g/unidade');
+
+
+
+CREATE TABLE Transformidades (
+    Id INT PRIMARY KEY,
+    Material VARCHAR(100),
+    Transformidade BIGINT,
+    Unidade VARCHAR(20),
+    Fonte VARCHAR(100)
+);
+
+INSERT INTO Transformidades (Id, Material, Transformidade, Unidade, Fonte) VALUES
+(1, 'Cimento Portland', 5000000, 'seJ/g', 'Pulselli et al. (2008)'),
+(2, 'Areia', 200000, 'seJ/g', 'Handbook of Emergy Evaluation'),
+(3, 'Brita', 800000, 'seJ/g', 'Handbook of Emergy Evaluation'),
+(4, 'Água', 20000, 'seJ/g', 'Handbook of Emergy Evaluation'),
+(5, 'Madeira', 100000, 'seJ/g', 'Odum, H.T. (1996)'),
+(6, 'Petróleo', 45000, 'seJ/J', 'Bastianoni et al. (2009)'),
+(7, 'Gasolina', 44000, 'seJ/J', 'Bastianoni et al. (2009)'),
+(8, 'Diesel', 46000, 'seJ/J', 'Bastianoni et al. (2009)'),
+(9, 'Carvão Mineral', 30000, 'seJ/J', 'Odum, H.T. (1996)'),
+(10, 'Energia Elétrica (rede)', 200000, 'seJ/J', 'Odum, H.T. (1996)'),
+(11, 'Aço', 25000000, 'seJ/g', 'Brown & Ulgiati (2004)'),
+(12, 'Alumínio', 100000000, 'seJ/g', 'Brown & Ulgiati (2004)'),
+(13, 'Cobre', 150000000, 'seJ/g', 'Brown & Ulgiati (2004)'),
+(14, 'Vidro', 5000000, 'seJ/g', 'Brown & Ulgiati (2004)'),
+(15, 'Plástico (PEAD)', 120000000, 'seJ/g', 'Brown & Ulgiati (2004)');
